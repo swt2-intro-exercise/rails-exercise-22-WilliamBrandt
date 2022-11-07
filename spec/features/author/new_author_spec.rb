@@ -23,6 +23,9 @@ require 'rails_helper'
 
      expect(Author.where(first_name: 'Alan', last_name: 'Turing', homepage: 'http://wikipedia.org/Alan_Turing').count).to eq(1)
      end
-
+   it "should throw an error if no last name is provided" do
+     @invalidAuthor = Author.new({first_name:"Alan", last_name:"", homepage:"http://wikipedia.org/Alan_Turing"})
+     expect(@invalidAuthor).to_not be_valid
+   end
 
  end
