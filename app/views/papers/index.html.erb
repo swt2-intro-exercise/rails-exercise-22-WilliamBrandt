@@ -6,8 +6,12 @@
   <% @papers.each do |paper| %>
     <%= render paper %>
     <p>
-      <%= link_to "Show this paper", paper %>
+      <%= link_to "Show this paper", paper %> |
     </p>
+    <p>
+      <%= link_to "Edit this paper", edit_paper_path(paper) %>
+    </p>
+
   <% end %>
 </div>
 
