@@ -3,8 +3,11 @@ class PapersController < ApplicationController
 
   # GET /papers
   def index
-    @papers = Paper.all
-    @selected_papers = Paper.created_after(params[:year])
+    if params[:year].present?
+      @papers = Paper.created_in(params[:year])
+    else
+      @papers = Paper.all
+    end
   end
 
   # GET /papers/1

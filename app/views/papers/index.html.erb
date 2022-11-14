@@ -3,12 +3,7 @@
 <h1>Papers</h1>
 
 <div id="papers">
-  <% if @selected_papers.present?
-       @papers_display = @selected_papers
-    else
-      @papers_display = @papers
-  end %>
-<% @papers_display.each do |paper| %>
+    <% @papers.each do |paper| %>
     <%= render paper %>
     <p>
       <%= link_to "Show this paper", paper %>
@@ -16,7 +11,7 @@
       <%= link_to 'Delete', paper_path(paper), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
     </p>
 
-<% end %>
+    <% end %>
 </div>
 
 <%= link_to "New paper", new_paper_path %>
