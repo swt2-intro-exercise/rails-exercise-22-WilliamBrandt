@@ -3,7 +3,12 @@
 <h1>Papers</h1>
 
 <div id="papers">
-  <% @papers.each do |paper| %>
+  <% if @selected_papers.present?
+       @papers_display = @selected_papers
+    else
+      @papers_display = @papers
+  end %>
+<% @papers_display.each do |paper| %>
     <%= render paper %>
     <p>
       <%= link_to "Show this paper", paper %>
